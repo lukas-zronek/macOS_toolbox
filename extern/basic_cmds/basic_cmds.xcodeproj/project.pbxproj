@@ -111,13 +111,13 @@
 		};
 		721D59CD0FC5FA9D009D810A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = /usr/share/man/man5;
 			dstSubfolderSpec = 0;
 			files = (
 				721D59B70FC5F6F4009D810A /* uuencode.5 in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
