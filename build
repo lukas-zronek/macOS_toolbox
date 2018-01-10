@@ -1,0 +1,67 @@
+#!/bin/sh
+
+platform=macosx
+sysroot=$(xcrun --sdk "$platform" --show-sdk-path)
+cc=$(xcrun --find --sdk "$platform" clang)
+cflags="-isysroot $sysroot -I."
+exec=toolbox
+extern_path=extern
+
+declarations=
+entry_points=
+combined_objs=
+ldflags=
+
+rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
+
+if [ "$1" = clean ]
+then
+	exit 0
+fi
+
+while IFS=, read -r project aliases flags
+do
+	prog=$(echo "$aliases" | cut -f1 -d' ')
+
+	echo Building "$aliases"
+
+	project_path=$extern_path/$project
+
+	xcodebuild -sdk "$platform" -project "$project_path"/"$project".xcodeproj -target "$prog" &> log/"$prog".txt
+
+	exit=$?
+
+	linkfilelist=$(echo $project_path/build/$project.build/Release/$prog.build/Objects-normal/x86_64/*.LinkFileList)
+
+	if [ ! -e "$linkfilelist" ]; then
+		printf 'xcodebuild failed (exit: %d)\n' "$exit"
+		exit 1
+	fi
+
+	objs=$(tr '\n' ' ' < $linkfilelist)
+
+	sed s/%NAME%/"$prog"/ main_wrap.c.tpl > gen/"$prog"_main.c
+	$cc $cflags -c gen/"$prog"_main.c
+
+	for name in $aliases
+	do
+		declarations="$declarations extern int ${prog}_main();"
+		entry_points="$entry_points {\"$name\", ${prog}_main},"
+	done
+
+	$cc $cflags -nostdlib -Wl,-r,-exported_symbol,_"$prog"_main -o "$prog"_combined.o $objs "$prog"_main.o
+
+	combined_objs="$combined_objs ${prog}_combined.o"
+
+	if [ ! -z "$flags" ]
+	then
+		ldflags="$ldflags $flags"
+	fi
+done < progs.txt
+
+sed -e s/%DECLARATIONS%/"$declarations"/ -e s/%ENTRY_POINTS%/"$entry_points"/ progs.h.tpl > gen/progs.h
+
+echo LDFLAGS: $ldflags
+
+$cc $cflags -c main.c
+$cc $cflags $ldflags $combined_objs main.o -o "$exec"
