@@ -6,6 +6,8 @@ SDKROOT = macosx.internal
 // Linking
 OTHER_LDFLAGS = -lbz2 -llzma -lz
 
+OTHER_CFLAGS = -Wno-error=documentation
+
 // Packaging
 PRODUCT_NAME = grep
 
