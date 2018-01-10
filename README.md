@@ -9,20 +9,20 @@ This works very much like crunchgen: The unmodified source code is compiled and 
 
 **Install Xcode Command Line Tools**
 ```
-$ xcode-select --install
+xcode-select --install
 ```
 
 **Download files**
 ```
-$ git clone https://github.com/lukas-zronek/macOS_toolbox.git
+git clone https://github.com/lukas-zronek/macOS_toolbox.git
 ```
 
 **Compile**
 ```
-$ cd macOS_toolbox
+cd macOS_toolbox
 ```
 ```
-$ ./build
+./build
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ $ ./build
 If no command is given, all included programs will be listed:
 
 ```
-s$ ./toolbox 
+./toolbox
 Included programs:
 	uuencode
 	uudecode
