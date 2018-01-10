@@ -3363,7 +3363,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INSTALL_PATH = /sbin;
-				"OTHER_LDFLAGS[sdk=macosx*]" = "-lCrashReporterClient";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx.internal;
 			};
