@@ -11,7 +11,7 @@ Tested with Xcode 9.2 (9C40b) on a Mac running macOS 10.13.2.
 
 ## Building
 
-**Install Xcode
+**Install Xcode**
 
 You can obtain the latest version of Xcode from the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835) or the [Apple developer website](https://developer.apple.com/download/) (requires free Apple Developer account).
 
