@@ -5,9 +5,19 @@
 macOS_toolbox is a replacement for busybox/toybox for macOS. It combines several macOS command line utilities into a single executable.
 This works very much like crunchgen: The unmodified source code is compiled and linked together.
 
+## Requirements
+
+Tested with Xcode 9.2 (9C40b) on a Mac running macOS 10.13.2.
+
 ## Building
 
+**Install Xcode
+
+You can obtain the latest version of Xcode from the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835) or the [Apple developer website](https://developer.apple.com/download/) (requires free Apple Developer account).
+
 **Install Xcode Command Line Tools**
+
+Open a terminal and run:
 ```
 xcode-select --install
 ```
