@@ -163,5 +163,5 @@ Included programs:
 
 ## License
 
-macOS_toolbox is released under 2-clause BSD License.
-With the exception of source code in the extern directory which falls under the license specified in the respective file.
+macOS_toolbox is released under [BSD 2-Clause License](https://github.com/lukas-zronek/macOS_toolbox/blob/master/LICENSE).
+With the exception of source code in the [extern](https://github.com/lukas-zronek/macOS_toolbox/tree/master/extern) directory which falls under the license specified in the respective source file.
