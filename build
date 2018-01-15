@@ -20,6 +20,14 @@ fi
 
 if [ "$1" = clean ]
 then
+	for d in "$extern_path"/*/*.xcodeproj
+	do
+		if [ -d "$d" ]
+		then
+			xcodebuild -project "$d" clean
+		fi
+	done
+
 	rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
 
 	exit 0
