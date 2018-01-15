@@ -31,6 +31,10 @@ then
 	rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
 
 	exit 0
+elif [ ! -z "$1" ]
+then
+	printf "Usage ./build [clean]\n" 1>&2
+	exit 1
 fi
 
 while IFS=, read -r project aliases flags
