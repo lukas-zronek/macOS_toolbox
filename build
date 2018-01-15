@@ -18,10 +18,10 @@ then
 	exit 1
 fi
 
-rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
-
 if [ "$1" = clean ]
 then
+	rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
+
 	exit 0
 fi
 
