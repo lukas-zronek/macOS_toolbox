@@ -108,3 +108,4 @@ text_cmds,uniq
 text_cmds,unvis
 text_cmds,vis
 text_cmds,wc
+rsync,rsync
