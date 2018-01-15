@@ -14,7 +14,7 @@ xcode_path=$(xcode-select -p 2> /dev/null)
 
 if [ ! $? -eq 0 ] || [ -z "$xcode_path" ] || [ "$xcode_path" = /Library/Developer/CommandLineTools ]
 then
-	printf "Error: Xcode is not installed.\n" 1>&2
+	printf 'Error: Xcode is not installed.\n' 1>&2
 	exit 1
 fi
 
@@ -33,7 +33,7 @@ then
 	exit 0
 elif [ ! -z "$1" ]
 then
-	printf "Usage ./build [clean]\n" 1>&2
+	printf 'Usage ./build [clean]\n' 1>&2
 	exit 1
 fi
 
