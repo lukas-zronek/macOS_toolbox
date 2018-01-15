@@ -2,6 +2,7 @@
 
 cc=clang
 cflags=-I.
+sdk=macosx
 exec=toolbox
 extern_path=extern
 
@@ -24,7 +25,7 @@ then
 	do
 		if [ -d "$d" ]
 		then
-			xcodebuild -project "$d" clean
+			xcodebuild -sdk "$sdk" -project "$d" clean
 		fi
 	done
 
@@ -45,7 +46,7 @@ do
 
 	project_path=$extern_path/$project
 
-	xcodebuild -project "$project_path"/"$project".xcodeproj -target "$prog" &> log/"$prog".txt
+	xcodebuild -sdk "$sdk" -project "$project_path"/"$project".xcodeproj -target "$prog" &> log/"$prog".txt
 
 	exit=$?
 
