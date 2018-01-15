@@ -164,6 +164,8 @@ Included programs:
 	unvis
 	vis
 	wc
+	rsync
+	nano
 ```
 
 ## License
