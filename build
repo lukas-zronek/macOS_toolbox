@@ -48,12 +48,12 @@ do
 
 	xcodebuild -sdk "$sdk" -project "$project_path"/"$project".xcodeproj -target "$prog" &> log/"$prog".txt
 
-	exit=$?
+	exit_status=$?
 
 	linkfilelist=$(echo $project_path/build/$project.build/Release/$prog.build/Objects-normal/x86_64/*.LinkFileList)
 
 	if [ ! -e "$linkfilelist" ]; then
-		printf 'Error: xcodebuild failed (exit: %d)\n' "$exit" 1>&2
+		printf 'Error: xcodebuild failed (exit: %d)\n' "$exit_status" 1>&2
 		exit 1
 	fi
 
