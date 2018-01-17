@@ -3,7 +3,7 @@
 ## Synopsis
 
 macOS_toolbox is a replacement for busybox/toybox for macOS. It combines several macOS command line utilities into a single executable.
-This works very much like crunchgen: The unmodified source code is compiled and linked together.
+This works very much like [crunchgen](https://www.freebsd.org/cgi/man.cgi?query=crunchgen): The unmodified source code is compiled and linked together.
 
 ## Requirements
 
