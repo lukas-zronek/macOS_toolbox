@@ -47,7 +47,7 @@ or
 ./toolbox COMMAND
 ```
 
-# Examples
+**Examples**
 
 ```
 ./toolbox uname -a
