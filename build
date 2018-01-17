@@ -39,6 +39,12 @@ then
 	exit 1
 fi
 
+if [ ! -f "$progs_file" ]
+then
+	printf 'Error: Input file '\'%s\'' not found.\n' "$progs_file" 1>&2
+	exit 1
+fi
+
 while IFS=, read -r project aliases flags
 do
 	prog=$(echo "$aliases" | cut -f1 -d' ')
