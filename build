@@ -33,9 +33,12 @@ then
 	rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
 
 	exit 0
+elif [ "$1" = recovery ]
+then
+	progs_file=progs-recovery.txt
 elif [ ! -z "$1" ]
 then
-	printf 'Usage ./build [clean]\n' 1>&2
+	printf 'Usage ./build [clean | recovery]\n' 1>&2
 	exit 1
 fi
 

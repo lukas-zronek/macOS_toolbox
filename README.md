@@ -26,8 +26,19 @@ git clone https://github.com/lukas-zronek/macOS_toolbox.git
 ```
 cd macOS_toolbox
 ```
+
+You can build two different variants:
+
+* Add all available programs
 ```
 ./build
+```
+
+or
+
+* just add programs that are missing in the macOS recovery partition
+```
+./build recovery
 ```
 
 ## Usage
