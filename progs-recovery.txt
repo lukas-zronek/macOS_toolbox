@@ -1,0 +1,50 @@
+basic_cmds,uuencode
+basic_cmds,uudecode
+basic_cmds,mesg
+basic_cmds,write
+file_cmds,chown
+file_cmds,compress
+file_cmds,du
+file_cmds,gzip,-lbz2 -llzma -lz
+file_cmds,install
+file_cmds,ipcrm
+file_cmds,mtree
+file_cmds,pathchk
+shell_cmds,apply
+shell_cmds,basename
+shell_cmds,chroot
+shell_cmds,dirname
+shell_cmds,env
+shell_cmds,false
+shell_cmds,hexdump od
+shell_cmds,id groups whoami
+shell_cmds,jot
+shell_cmds,killall
+shell_cmds,lastcomm
+shell_cmds,locate
+shell_cmds,logname
+shell_cmds,nice
+shell_cmds,nohup
+shell_cmds,path_helper
+shell_cmds,printenv
+shell_cmds,printf
+shell_cmds,renice
+shell_cmds,script
+shell_cmds,seq
+shell_cmds,shlock
+shell_cmds,systime
+shell_cmds,tee
+shell_cmds,test [
+shell_cmds,time
+shell_cmds,true
+shell_cmds,uname
+shell_cmds,users
+shell_cmds,whereis
+shell_cmds,which
+shell_cmds,who
+shell_cmds,xargs
+shell_cmds,yes
+text_cmds,ed
+text_cmds,ee,-lncurses
+rsync,rsync
+nano,nano,-lncurses
