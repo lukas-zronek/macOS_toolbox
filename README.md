@@ -47,6 +47,18 @@ or
 ./toolbox COMMAND
 ```
 
+# Examples
+
+```
+./toolbox uname -a
+Darwin Mac-mini.local 17.3.0 Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 PST 2017; root:xnu-4570.31.3~1/RELEASE_X86_64 x86_64
+```
+
+```
+./toolbox du -h toolbox
+1,6M	toolbox
+```
+
 If no command is given, all included programs will be listed:
 
 ```
