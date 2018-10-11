@@ -48,3 +48,4 @@ text_cmds,ed
 text_cmds,ee,-lncurses
 rsync,rsync
 nano,nano,-lncurses
+gm4,gm4 m4

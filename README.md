@@ -56,7 +56,7 @@ Darwin Mac-mini.local 17.3.0 Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 P
 
 ```
 ./toolbox du -h toolbox
-1,6M	toolbox
+1,8M	toolbox
 ```
 
 If no command is given, all included programs will be listed:
@@ -189,6 +189,8 @@ Included programs:
 	wc
 	rsync
 	nano
+	gm4
+	m4
 ```
 
 ## License

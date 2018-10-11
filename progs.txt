@@ -110,3 +110,4 @@ text_cmds,vis
 text_cmds,wc
 rsync,rsync
 nano,nano,-lncurses
+gm4,gm4 m4
