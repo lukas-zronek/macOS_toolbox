@@ -27,6 +27,7 @@ then
 	do
 		if [ -d "$d" ]
 		then
+			printf '=== Cleaning %s ===\n' "$d"
 			xcodebuild -sdk "$sdk" -project "$d" clean
 		fi
 	done
