@@ -2,6 +2,7 @@
 
 cc=clang
 cflags=-I.
+objdir=obj
 sdk=macosx
 exec=toolbox
 extern_path=extern
@@ -30,7 +31,7 @@ then
 		fi
 	done
 
-	rm -f *.o gen/progs.h gen/*_main.c log/*.txt "$exec"
+	rm -f "$objdir"/*.o gen/progs.h gen/*_main.c log/*.txt "$exec"
 
 	exit 0
 elif [ "$1" = recovery ]
@@ -70,7 +71,7 @@ do
 	objs=$(tr '\n' ' ' < $linkfilelist)
 
 	sed s/%NAME%/"$prog"/ main_wrap.c.tpl > gen/"$prog"_main.c
-	$cc $cflags -c gen/"$prog"_main.c
+	$cc $cflags -c gen/"$prog"_main.c -o "$objdir"/"$prog"_main.o
 
 	for name in $aliases
 	do
@@ -78,9 +79,9 @@ do
 		entry_points="$entry_points {\"$name\", ${prog}_main},"
 	done
 
-	$cc $cflags -nostdlib -Wl,-r,-exported_symbol,_"$prog"_main -o "$prog"_combined.o $objs "$prog"_main.o
+	$cc $cflags -nostdlib -Wl,-r,-exported_symbol,_"$prog"_main -o "$objdir"/"$prog"_combined.o $objs "$objdir"/"$prog"_main.o
 
-	combined_objs="$combined_objs ${prog}_combined.o"
+	combined_objs="$combined_objs $objdir/${prog}_combined.o"
 
 	if [ ! -z "$flags" ]
 	then
@@ -92,5 +93,5 @@ sed -e s/%DECLARATIONS%/"$declarations"/ -e s/%ENTRY_POINTS%/"$entry_points"/ pr
 
 echo LDFLAGS: $ldflags
 
-$cc $cflags -c main.c
-$cc $cflags $ldflags $combined_objs main.o -o "$exec"
+$cc $cflags -c main.c -o "$objdir"/main.o
+$cc $cflags $ldflags $combined_objs "$objdir"/main.o -o "$exec"

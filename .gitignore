@@ -1,4 +1,4 @@
 toolbox
-*.o
+obj/*.o
 log/*
 gen/*
